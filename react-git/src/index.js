@@ -7,12 +7,13 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 import { CookiesProvider } from 'react-cookie';
 import { ReactCookies } from './component/React-Cookies/reactCookies';
+import { Shooper } from './component/shopper/shopper';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <CookiesProvider>
-      <ReactCookies />
+      <Shooper />
     </CookiesProvider>  
 </React.StrictMode>
 );
