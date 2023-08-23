@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+ */
+  .App {
+    background: #F5F5F5;
+  }
+  .mainContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+    padding-top: 10px;
+  }
+  .logo {
+    font-size: 15px;
+    font-weight: bold;
+    color: gray;
+  }
+  .linkContainer {
+    margin-left: 40px;
+  }
+  .homeHeading {
+    margin-top: 10px;
+    text-align: center;
+    color: gray;
+  }
+  .allProducts {
+    text-align: center;
+  }
+  .cartContainer {
+    margin-left: 45px;
+  }
