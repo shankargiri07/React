@@ -1,21 +1,34 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { add } from "../store/cartSlice"
+import { useDispatch, useSelector } from "react-redux";
+import { add } from "../store/cartSlice";
+import { fetchProducts } from "../store/productSlice";
+import { STATUS } from "../store/productSlice";
 
 export function Products(){
+
     const dispatch = useDispatch();
-    const [products, setProducts] = useState([]);
+    const {data: products, status} = useSelector((state) => state.product);
+    //const [products, setProducts] = useState([]);
     useEffect(() => {
-        const loadProducts = async () => {
+        dispatch(fetchProducts());
+
+        /* const loadProducts = async () => {
             const res = await fetch("http://fakestoreapi.com/products");
             const data = await res.json();
             setProducts(data);
         };
-        loadProducts();
+        loadProducts(); */
     },[]);
 
     const handleAdd = (product) => {
         dispatch(add(product));
+    };
+
+    if(status === STATUS.LOADING){
+        return <h4 className="successMsg">Loading...</h4>
+    }
+    if(status === STATUS.ERROR){
+        return <h4 className="errorMsg"><code>Somthing want's wrong..</code></h4>
     }
     return(
         <div className="d-flex flex-wrap cartContainer">
